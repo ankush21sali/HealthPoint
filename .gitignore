@@ -13,9 +13,8 @@ ENV/
 # Django database (local SQLite)
 db.sqlite3
 
-# Migrations (optional - if you don’t want to track them at start)
+# Keep migrations but ignore cache
 */migrations/__pycache__/
-*/migrations/*.py
 
 # Static & media files
 /media/
@@ -31,3 +30,4 @@ staticfiles/
 # OS files
 .DS_Store
 Thumbs.db
+
