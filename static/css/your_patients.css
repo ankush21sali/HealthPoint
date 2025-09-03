@@ -1,0 +1,115 @@
+.patients_container, .discharge_list {
+    padding: 1rem 3rem;
+    margin: 2rem 4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container {
+    border: 2px solid #0e254e;
+    width: 100%;
+    min-width: 300px;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 1px rgb(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover{
+    border-color: #365ed9;
+}
+
+.container h1 {
+    display: inline-block;
+    font-size: 2.5rem;
+    color: #365ed9;
+    border: 5px solid #365ed9;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.container .table_title {
+    color: #0e254e;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+    margin: 2rem 0;
+    font-size: 1.1rem;
+}
+
+
+th {
+    text-align: left;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 0.5rem 1rem;
+    background-color: #383a40;
+    color: white;
+    
+}
+
+td {
+    text-align: left;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 0.5rem 0.8rem;
+    font-weight: 600;
+    color: #383a40;
+}
+
+.detail {
+    color: black;
+    font-weight: 700;
+}
+
+.info {
+    color: #333;
+}
+
+.container a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: #365ed9;
+    border-radius: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+
+}
+
+.container a:hover {
+    background: #274bb7;
+    transform: translateY(-2px);
+}
+
+
+
+@media (max-width: 768px) {
+    .patients_container, .discharge_list {
+        padding: 1rem 2rem;
+        margin: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    table, th, td {
+        padding: 0.75rem;
+    }
+}

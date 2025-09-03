@@ -1,0 +1,72 @@
+{% extends "doctor_base.html" %}
+
+{% block title %}Our Patients{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/our_patients.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="patients_container">
+
+            <div class="container">
+
+                <h1>Patients List</h1>
+
+                <table>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Info</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    {% if patients %}
+                    {% for patient in patients %}
+                    <tr>
+                        <td>
+                            {{ patient.patient_id }}
+                        </td>
+                        <td>
+                            {{ patient.user.first_name }}
+                        </td>
+                        <td>
+                            {{ patient.user.last_name }}
+                        </td>
+                        <td>
+                            {{ patient.user.email }}
+                        </td>
+                        <td>
+                            {{ patient.contact }}
+                        </td>
+                        <td>
+                            <a href="{% url 'view_details' patient.patient_id %}">View Details</a>
+                        </td>
+                        <td>
+                            {% if patient.is_discharge %}
+                            <a style="background-color: green;" href="{% url 'discharge_list' %}">Discharged</a>
+                            {% else %}
+                            <a href="{% url 'discharge_form' patient.patient_id %}">Discharge</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+                    {% else %}
+                    <p>No appointments assigned yet.</p>
+                    {% endif %}
+
+                </table>
+            
+            </div>
+
+</section>
+
+{% endblock %}

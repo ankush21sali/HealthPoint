@@ -1,0 +1,39 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Edit Department{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/department_form.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="departments" >
+    
+    <div class="form_container">
+
+        <h1>Edit Department</h1>
+
+        {% if department %}
+        <form method="post">
+            {% csrf_token %}
+            <label for="department_name">Department Name : </label>
+            <input type="text" name="department_name" value="{{department.department_name}}" required>
+
+            <label for="description">Description : </label>
+            <textarea name="description" cols="30" rows="10">{{department.description}}</textarea>
+
+            <button type="submit">Save</button>
+
+        </form>
+        {% endif %}
+
+        <a href="{% url "manage_department" %}"><button class="go_back">Go Back</button></a>
+
+    </div>
+
+</section>
+
+{% endblock %}

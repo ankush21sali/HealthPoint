@@ -1,0 +1,84 @@
+{% extends "patient_base.html" %}
+
+{% block title %}Billings{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/your_patients.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="patients_container">
+
+    <div class="container">
+
+
+        <h1>Invoice of patients</h1>
+
+        <p class="table_title">Billing Information</p>
+        {% if bills %}
+        {% for bill in bills %}
+        <table>
+            <tr>
+                <th>Detail</th>
+                <th>Information</th>
+            </tr>
+
+            <tr>
+                <td class="detail">Patient Name</td>
+                <td class="info">{{bill.patient.user.first_name}} {{bill.patient.user.last_name}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Contact Number</td>
+                <td class="info">{{bill.patient.contact}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Email</td>
+                <td class="info">{{bill.patient.user.email}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Treatment</td>
+                <td class="info">{{bill.patient.disease}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Date Joined</td>
+                <td class="info">{{bill.patient.date_joined}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Doctor Name</td>
+                <td class="info">{{bill.doctor.user.first_name}} {{bill.doctor.user.last_name}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Amount</td>
+                <td class="info">{{bill.amount}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Billing Date</td>
+                <td class="info">{{bill.billing_date}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Status</td>
+                <td class="info">{{bill.status}}</td>
+            </tr>
+            <tr>
+                <td class="detail">Payment Method</td>
+                <td class="info">Payment can be done on reception counter. <i class="fa-solid fa-wallet"></i></td>
+            </tr>
+        </table>
+        
+        {% endfor %}
+
+        {% else %}
+
+        <p>No Biling Yet.</p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+{% endblock %}

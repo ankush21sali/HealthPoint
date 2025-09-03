@@ -1,0 +1,49 @@
+{% extends "patient_base.html" %}
+
+{% block title %}{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/appointments.css" %}">
+{% endblock %}
+
+{% block content %}
+<section class="appointments_container">
+
+    <div class="container">
+        <h1>Your Appointment</h1>
+    </div>
+
+
+    {% if appointments %}
+    {% for appointment in appointments %}
+    <div class="appointments">
+        <strong>Appointment #{{ forloop.counter }}</strong>
+        <p> <strong>Doctor :</strong> {{ appointment.doctor.user.first_name }} {{ appointment.doctor.user.last_name }}
+        </p>
+        <p> <strong>Date :</strong> {{ appointment.date }}</p>
+        <p> <strong>Time :</strong> {{ appointment.time }}</p>
+        <p> <strong>Symptoms :</strong> {{ appointment.symptoms }}</p>
+
+        {% comment %} Appointment Edit button {% endcomment %}
+        <form action="{% url 'edit_appointments' appointment.id %}" method="post">
+            {% csrf_token %}
+            <button class="edit" name="edit">Edit</button>
+        </form>
+
+        {% comment %} Appointment Delete button {% endcomment %}
+        <form method="post">
+            {% csrf_token %}
+            <button class="delete" name="delete" value="{{appointment.id}}">Delete</button>
+        </form>
+
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <p class="empty">No appointments booked yet.</p>
+    {% endif %}
+
+</section>
+{% endblock %}

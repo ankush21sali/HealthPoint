@@ -1,0 +1,43 @@
+{% extends "patient_base.html" %}
+
+{% block title %}Departments{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/departments.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="departments">
+
+        <div class="department_container">
+
+            <div class="content_container">
+                <h1>Our Departments</h1>
+                <p>At HealthPoint, every department is dedicated to delivering expert care with compassion and trust.
+                </p>
+            </div>
+
+            <div class="cards_container">
+                {% if departments %}
+                {% for department in departments %}
+                <div class="department_cards">
+                    <h2 class="card_title">{{department.department_name}}</h2>
+                    <p class="card_text">{{department.description}}</p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h2>No Department Added yet!</h2>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+{% endblock %}

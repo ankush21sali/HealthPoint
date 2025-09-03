@@ -1,0 +1,31 @@
+{% extends "doctor_base.html" %}
+
+{% block title %}Doctors DashBoard{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/doctor_dashboard.css" %}">
+{% endblock %}
+
+{% block content %}
+
+ <section class="doctor_dashboard">
+
+        <div class="container">
+            <h1>Doctor Dashboard</h1>
+            <h3>Welcome, Dr. {{user.first_name}} {{user.last_name}}</h3>
+        </div>
+
+
+        <div class="container">
+            <h2>Your Recent Activities</h2>
+
+            <div class="appointments">
+                <h3>Details about recent activities will be shown here.</h3>
+            </div>
+
+        </div>
+
+    </section>
+{% endblock %}

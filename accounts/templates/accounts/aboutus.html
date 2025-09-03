@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/aboutus.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="aboutus">
+
+        <div class="aboutus_container">
+
+            <div class="content">
+                <h2 class="title">Who We Are</h2>
+                <p class="subtitle">At HealthPoint, we are committed to delivering world-class healthcare services with
+                    compassion, innovation, and care. Our hospital is equipped with modern facilities, advanced
+                    diagnostic labs, and highly experienced doctors to ensure the best medical support for every
+                    patient.</p>
+            </div>
+
+            <div class="aboutus_image">
+                <img src="{% static "images/about_image.jpg" %}" alt="AboutUs Image">
+            </div>
+
+            <div class="content">
+                <h2 class="title">Our Mission
+                </h2>
+                <p class="subtitle">At HealthPoint, we are committed to delivering world-class healthcare services with
+                    compassion, innovation, and care. Our hospital is equipped with modern facilities, advanced
+                    diagnostic labs, and highly experienced doctors to ensure the best medical support for every
+                    patient. A healthier tomorrow where every individual receives the care they deserve—timely,
+                    trusted, and tailored to their needs.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}HealthPoint.{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        {% block css %} {% endblock %}
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav_container">
+
+                <div class="brand_name">
+                    <span><i class="fa-solid fa-hospital-user"></i>HealthPoint</span>
+                </div>
+
+                <div class="nav_items">
+
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'services' %}">Services</a>
+                    <a href="{% url 'aboutus' %}">AboutUs</a>
+                    <a href="{% url 'view_doctors' %}">Doctors</a>
+                    <a href="{% url 'departments' %}">Departments</a>
+                    <a href="{% url 'contactus' %}">ContactUs</a>
+
+                </div>
+
+                <div class="auth_link">
+                    {% if user.is_authenticated %}
+                    <a href="{% url "user_logout" %}">Logout</a>
+                    {% else %}
+                    <a href="{% url "loginpage" %}">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    {% block content %}
+    {% endblock %}
+
+
+
+    <footer class="footer">
+        <div class="footer_container">
+
+            <!-- Brand -->
+            <div class="footer_brand">
+                <h2><i class="fa-solid fa-hospital-user"></i> HealthPoint</h2>
+                <p>Your wellness, our priority. Exceptional patient care every day.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer_links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Doctors</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer_contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fa-solid fa-envelope"></i> support@healthpoint.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Bhopal, India</p>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer_social">
+                <h3>Follow Us</h3>
+                <div class="social_icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer_bottom">
+            <p>© 2025 HealthPoint. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

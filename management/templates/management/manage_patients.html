@@ -1,0 +1,72 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Manage Patient{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/manage_patients.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="patients_container">
+
+    <div class="manage_patients">
+
+        <h1>Patient List</h1>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+
+            {% if patients %}
+            {% for patient in patients %}
+
+            <tr>
+                <td>
+                    {{patient.patient_id}}
+                </td>
+                <td>
+                    {{patient.user.first_name}}
+                </td>
+                <td>
+                    {{patient.user.last_name}}
+                </td>
+                <td>
+                    {{patient.user.email}}
+                </td>
+                <td>
+                    {{patient.contact}}
+                </td>
+                <td>
+
+                    <a href="{% url 'edit_patient' patient.patient_id %}"><button class="edit_btn">Edit</button></a> 
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <button class="delete_btn" name="delete_btn" value="{{patient.patient_id}}" type="submit">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+
+        </table>
+
+        <a class="patient_btn" href="{% url "add_patient" %}">Add New Patient</a>
+
+    </div>
+
+</section>
+
+{% endblock %}

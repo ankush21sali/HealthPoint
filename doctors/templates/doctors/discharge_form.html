@@ -1,0 +1,37 @@
+{% extends "doctor_base.html" %}
+
+{% block title %}Discharge Form{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/discharge_form.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="discharge_section">
+
+    <div class="form_container">
+
+        <h1>Discharge Form</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="discharge_date">Discharge Date :</label>
+            <input type="date" name="discharge_date" required>
+
+            <label for="discharge_reason">Discharge Reason :</label>
+            <textarea name="discharge_reason" required></textarea>
+
+            <button type="submit">Discharge Patient</button>
+        </form>
+
+        <a class="go_back" href="{% url "our_patients" %}"><button>Go Back</button></a>
+
+    </div>
+
+</section>
+
+{% endblock %}

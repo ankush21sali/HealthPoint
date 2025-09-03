@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+ENV/
+*.env
+
+# Django database (local SQLite)
+db.sqlite3
+
+# Migrations (optional - if you don’t want to track them at start)
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Static & media files
+/media/
+staticfiles/
+
+# Logs
+*.log
+
+# IDE & editor settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/services.css" %}">
+{% endblock %}
+
+{% block content %}
+
+
+    <section class="services">
+        <h2 class="services_title">Our Services</h2>
+        <h1 class="services_subtitle">We Are Provie world-class healthcare</h1>
+
+        <div class="container">
+
+            <div class="services_container">
+                <div class="service_cards">
+                    <i class="fa-solid fa-truck-medical"></i>
+                    <h3>24/7 Ambulance Service</h3>
+                    <p>Quick-response ambulance support for emergency pick-up and patient transfer.</p>
+                </div>
+
+                <div class="service_cards">
+                    <i class="fa-solid fa-capsules"></i>
+                    <h3>Pharmacy & Medicines</h3>
+                    <p>Fully stocked in-house pharmacy to provide prescribed medicines conveniently.</p>
+                </div>
+
+                <div class="service_cards">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <h3>Laboratory & Diagnostics</h3>
+                    <p>Advanced lab tests and diagnostics for accurate health reports.</p>
+                </div>
+            </div>
+
+            <div class="service_image">
+                <img src="{% static "images/services-image.webp" %}" alt="service_image">
+            </div>
+
+
+            <div class="services_container">
+                <div class="service_cards">
+                    <i class="fa-solid fa-bed-pulse"></i>
+                    <h3>In-Patient Care (IPD)</h3>
+                    <p>Comfortable wards and rooms with round-the-clock nursing support.</p>
+                </div>
+
+                <div class="service_cards">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <h3>Out-Patient Care (OPD)</h3>
+                    <p>Easy and quick consultation services with expert doctors.</p>
+                </div>
+
+                <div class="service_cards">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <h3>Emergency & Trauma Care</h3>
+                    <p>Dedicated emergency unit for critical cases with immediate treatment facilities.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

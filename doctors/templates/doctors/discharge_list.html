@@ -1,0 +1,43 @@
+{% extends "doctor_base.html" %}
+
+{% block title %}Discharge List{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/our_patients.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="discharge_list">
+
+    <div class="container">
+        <h1>Patients Discharge List</h1>
+        <table>
+                <tr>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Discharge Date</th>
+                    <th>Actions</th>
+                </tr>
+
+                 {% if discharge_lists %}
+                 {% for discharge_list in discharge_lists %}
+                <tr>
+                    <td>{{ discharge_list.patient.user.first_name }} {{ discharge_list.patient.user.last_name }}</td>
+                    <td>{{ discharge_list.doctor.user.first_name }} {{ discharge_list.doctor.user.last_name }} ({{ discharge_list.doctor.department }})</td>
+                    <td>25 {{ discharge_list.discharge_date }}</td>
+                    <td><a href="{% url "view_details" discharge_list.patient.patient_id %}">View Details</a></td>
+                </tr>
+            {% endfor %}
+
+            {% endif %}
+
+            </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

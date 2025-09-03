@@ -1,0 +1,90 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Edit Doctor{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/doctor_register.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="doctor_registration">
+
+    <div class="registration_container">
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+
+        <h1>Edit Doctor</h1>
+
+        {% if doctor %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" value="{{doctor.user.first_name}}" required>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" value="{{doctor.user.last_name}}" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" value="{{doctor.user.email}}" required>
+
+            <label for="contact">Contact</label>
+            <input type="text" name="contact" value="{{doctor.contact}}" required>
+
+            <label for="department">Department</label>
+            <select name="department" id="department" required>
+                <option value="">Select Department</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="gynecologist">Gynecologist</option>
+                <option value="orthopedic">Orthopedic</option>
+                <option value="psychiatrist">Psychiatrist</option>
+                <option value="radiologist">Radiologist</option>
+                <option value="general_physician">General Physician</option>
+                <option value="ent_specialist">ENT Specialist</option>
+            </select>
+
+            <label for="specialist">Specialist</label>
+            <input type="text" name="specialist" value="{{doctor.specialist}}">
+
+            <label for="doctor_image">Doctor Image</label>
+            <input type="file" name="doctor_image">
+
+            <label for="is_active">Availability</label>
+            <select name="is_active" id="is_active" required>
+                <option value="">Select Availability</option>
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+            </select>
+
+            {% if doctor.doctor_image %}
+            <img src="{{ doctor.doctor_image.url }}" alt="Doctor Image" style="width:150px;height:150px;">
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+
+
+            <button type="submit">Save</button>
+        </form>
+        {% endif %}
+
+        <a href="{% url "manage_doctors" %}"><button type="submit">Go Back</button></a>
+
+    </div>
+
+</section>
+{% endblock %}

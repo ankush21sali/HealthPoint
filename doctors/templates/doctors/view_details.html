@@ -1,0 +1,45 @@
+{% extends "doctor_base.html" %}
+
+{% block title %}View Patients{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/view_details.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="view_details">
+
+    <div class="details_Container">
+
+        <h1>Patient Details</h1>
+
+        {% if patient_detail %}
+
+        <p><strong>Fisrt Name :</strong> {{patient_detail.user.first_name}}</p>
+        <p><strong>Last Name :</strong> {{patient_detail.user.last_name}}</p>
+        <p><strong>Email :</strong> {{patient_detail.user.email}}</p>
+        <p><strong>Contact :</strong> {{patient_detail.contact}}</p>
+        <p><strong>Date Of Birth :</strong> {{patient_detail.date_of_birth}}</p>
+        <p><strong>Gender :</strong> {{patient_detail.gender}}</p>
+        <p><strong>Blood Group:</strong> {{patient_detail.blood_group}}</p>
+        <p><strong>Disease :</strong> {{patient_detail.disease}}</p>
+        <p><strong>Date Of Joined :</strong> {{patient_detail.date_joined}}</p>
+
+        {% if patient_detail.is_discharge %}
+        <p style="background-color: green; color: white;" class="discharged">Discharged</p>
+        {% else %}
+        <p style="background-color: orange; color: white;" class="in_observartion">In-Observartion</p>
+        {% endif %}
+
+        {% endif %}
+
+        <a class="go_back" href="{% url "our_patients" %}"><button type="submit">Go Back</button></a>
+
+    </div>
+
+</section>
+
+{% endblock %}

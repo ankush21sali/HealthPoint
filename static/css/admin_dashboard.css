@@ -1,0 +1,71 @@
+.doctor_dashboard {
+    padding: 2rem 4rem;
+    margin: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container {
+    border: 2px solid #0e254e;
+    width: 100%;
+    min-width: 300px;
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 1px rgb(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover{
+    border-color: #365ed9;
+    transform: translateY(-2px);
+}
+
+.container h1 {
+    font-size: 2rem;
+    padding: 1rem;
+    color: #365ed9;
+}
+
+.container h3 {
+    font-size: 1.5rem;
+    color: #0e254e;
+    font-weight: 600;
+}
+
+
+.container h2 {
+    font-size: 2.5rem;
+    color: #0e254e;
+    font-weight: 700;
+}
+
+.appointments {
+    padding: 1rem;
+    margin: 2rem;
+    border: 2px solid #0e254e;
+    border-radius: 1rem;
+    border-color: #365ed9;
+}
+
+
+.appointments p {
+    display: inline-block;
+    font-size: 1.2rem;
+    display: flex;
+    font-weight: 600;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .patient_dashboard {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .container h3, .container h2 {
+        font-size: 2rem;
+    }
+}

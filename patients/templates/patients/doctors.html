@@ -1,0 +1,41 @@
+{% extends "patient_base.html" %}
+
+{% block title %}Doctors{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/doctors.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <section class="doctors">
+
+        <div class="doctors_container">
+
+            <div class="content_container">
+
+                <h1>Our Doctors</h1>
+                <p>Every doctor at HealthPoint brings years of experience and advanced medical knowledge.</p>
+
+            </div>
+
+            <div class="card_container">
+
+                {% for doctor in doctors %}
+                <div class="doctor_card">
+                    <img src="{{doctor.doctor_image.url}}" alt="Doctor image">
+                    <h2>Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h2>
+                    <h3>Specialization: {{doctor.specialist}}</h3>
+                    <p>Department: {{doctor.department}}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}

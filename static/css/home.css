@@ -1,0 +1,124 @@
+section {
+    padding: 2rem 1rem;
+    background-color: #f8fafc; 
+}
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+}
+
+.main_text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #365ed9;
+    letter-spacing: 1px;
+}
+
+.title {
+    color: #0e254e;
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+
+.para_text {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 2rem;
+}
+
+.main_image {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main_image img {
+    max-width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.5rem 1.2rem rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.main_image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,0.2);
+}
+
+
+.custom-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    background-color: #365ed9;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.custom-btn:hover {
+    background-color: #274bb7;
+    box-shadow: 0 0.5rem 1rem rgba(54, 94, 217, 0.3);
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 992px) {
+    .main_container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .para_text {
+        font-size: 1rem;
+    }
+
+    .custom-btn {
+        margin: 1.5rem auto 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .para_text {
+        font-size: 0.95rem;
+    }
+}

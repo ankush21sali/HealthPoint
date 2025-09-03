@@ -1,0 +1,118 @@
+.services {
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.services_title {
+    color: #365ed9;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.services_subtitle {
+    color: #0e254e;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.services_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.service_cards {
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service_cards:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.service_cards i {
+    font-size: 2rem;
+    color: #365ed9;
+    margin-bottom: 1rem;
+}
+
+.service_cards h3 {
+    font-size: 1.4rem;
+    color: #0e254e;
+    margin-bottom: 0.8rem;
+}
+
+.service_cards p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.service_image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    align-self: center;
+    transition: transform 0.3s ease;
+}
+
+.service_image img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service_image:hover {
+    transform: scale(1.03);
+}
+
+
+
+@media (max-width: 992px) {
+    .services_title {
+        font-size: 2.2rem;
+    }
+
+    .services_subtitle {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .services_container {
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .service_cards {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .service_image {
+        max-width: 320px;
+    }
+}

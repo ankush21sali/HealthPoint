@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Registration{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/doctor_register.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="doctor_registration">
+
+    <div class="registration_container">
+
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+
+        <h1>Register as a Doctor</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" required>
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" required>
+
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+
+            <label for="email">Email</label>
+            <input type="email" name="email" required>
+
+            <label for="contact">Contact</label>
+            <input type="text" name="contact" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" name="confirm_password" required>
+
+            <label for="department">Department</label>
+            <select name="department" id="department" required>
+                <option value="">Select Department</option>
+                <option value="cardiologist">Cardiologist</option>
+                <option value="dermatologist">Dermatologist</option>
+                <option value="neurologist">Neurologist</option>
+                <option value="pediatrician">Pediatrician</option>
+                <option value="gynecologist">Gynecologist</option>
+                <option value="orthopedic">Orthopedic</option>
+                <option value="psychiatrist">Psychiatrist</option>
+                <option value="radiologist">Radiologist</option>
+                <option value="general_physician">General Physician</option>
+                <option value="ent_specialist">ENT Specialist</option>
+            </select>
+
+            <label for="specialist">Specialist</label>
+            <input type="text" name="specialist">
+
+            <label for="doctor_image">Doctor Image</label>
+            <input type="file" name="doctor_image">
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="link">
+            Already have an account?
+            <a href="{% url "doctor_login" %}">Login here</a>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

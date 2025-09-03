@@ -1,0 +1,30 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Add Billings{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/billing_form.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="billing">
+
+    <div class="billing_form">
+        <h1>Add Billing</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <button type="submit">Save</button>
+
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}

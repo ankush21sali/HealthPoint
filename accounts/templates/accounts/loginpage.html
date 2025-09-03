@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Login Page{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="loginpage">
+
+    <div class="container">
+
+        <div class="head_container">
+            <h1>Your Dashboard</h1>
+        </div>
+
+        <div class="cards_container">
+
+            <!-- Admin Card -->
+            <div class="card">
+                <img src="{% static 'images/admin_card_image.jpg' %}" alt="Doctor Card Image">
+                <h2 class="title">Admin</h2>
+                <p class="subtitle">Access the admin dashboard to oversee doctors, patients, and appointments.</p>
+                <a href="{% url "admin_login" %}" class="btn">Login as Admin</a>
+            </div>
+
+            <!-- Doctor Card -->
+            <div class="card">
+                <img src="{% static 'images/doctor_card_image.jpg' %}" alt="Doctor Card Image">
+                <h2 class="title">Doctor</h2>
+                <p class="subtitle">Access your doctor dashboard and Manage patient records and appointments.</p>
+                <a href="{% url "doctor_register" %}" class="btn">Login as Doctor</a>
+            </div>
+
+            <!-- Patient Card -->
+            <div class="card">
+                <img src="{% static 'images/patient_card_image.jpg' %}" alt="Patient Card Image">
+                <h2 class="title">Patient</h2>
+                <p class="subtitle">Access medical records and schedule appointments.</p>
+                <a href="{% url "patient_register" %}" class="btn">Login as Patient</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

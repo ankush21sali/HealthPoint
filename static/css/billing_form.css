@@ -1,0 +1,82 @@
+.billing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    font-family: Arial, sans-serif;
+}
+
+
+.billing_form {
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 0 1rem rgba(33, 147, 176, 0.5);
+    width: 100%;
+    max-width: 400px;
+    margin: 4rem 0;
+}
+
+.billing_form h1 {
+    color: #365ed9;
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+.billing_form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+}
+
+
+.billing_form input, .billing_form select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+
+.billing_form input:focus,
+.billing_form select:focus  {
+    border-color: #2193b0;
+    box-shadow: 0 0 5px rgba(33, 147, 176, 0.5);
+}
+
+
+.billing_form button {
+    width: 107%;
+    padding: 12px;
+    margin-top: 1rem;
+    background: #365ed9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.billing_form button:hover {
+    background: #274bb7;
+}
+
+
+
+@media (max-width: 480px) {
+    .billing_form {
+        padding: 25px 20px;
+    }
+    .billing_form h1 {
+        font-size: 20px;
+    }
+}

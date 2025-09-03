@@ -1,0 +1,119 @@
+
+.patient_registration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    font-family: Arial, sans-serif;
+}
+
+
+.registration_container {
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 0 1rem rgba(33, 147, 176, 0.5);
+    width: 100%;
+    max-width: 400px;
+    margin: 4rem 0;
+}
+
+
+.messages {
+  margin-bottom: 15px;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alert.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+
+.registration_container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #0e254e;
+    font-size: 2rem;
+}
+
+
+.registration_container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+}
+
+
+.registration_container input, .registration_container select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+
+.registration_container input:focus,
+.registration_container select:focus  {
+    border-color: #2193b0;
+    box-shadow: 0 0 5px rgba(33, 147, 176, 0.5);
+}
+
+
+.registration_container button {
+    width: 107%;
+    padding: 12px;
+    margin-top: 1rem;
+    background: #365ed9;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.registration_container button:hover {
+    background: #274bb7;
+}
+
+
+.link {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+
+@media (max-width: 480px) {
+    .registration_container {
+        padding: 25px 20px;
+    }
+    .registration_container h1 {
+        font-size: 20px;
+    }
+}

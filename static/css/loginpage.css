@@ -1,0 +1,71 @@
+.loginpage {
+    padding: 2rem 1rem;
+    background: #f7f9fc;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.head_container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #365ed9;
+}
+
+.cards_container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.card .title {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #0e254e;
+}
+
+.card .subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.card .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #365ed9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.card .btn:hover {
+    background: #023e8a;
+}

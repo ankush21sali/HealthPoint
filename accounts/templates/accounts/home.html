@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+
+    <div class="main_container">
+
+        <div class="main_text">
+
+            <p class="subtitle"> Welcome To HealthPoint</p>
+            <h1 class="title">We Provide Exceptional Patient Care Every Day.</h1>
+            <p class="para_text"><i>
+                Welcome to a place where your health is our mission. With experienced doctors,
+                modern facilities, and a patient-focused approach, HealthPoint delivers care
+                that is reliable, efficient, and heartfelt. Your wellness is our commitment.
+            </i></p>
+
+        </div>
+
+        <div class="main_image">
+            <img src="{% static 'images/home_image.jpg' %}" alt="doctor-image">
+            <a href="{% url "patient_register" %}" class="custom-btn">Book Appointment</a>
+        </div>
+        
+    </div>
+
+</section>
+{% endblock %}

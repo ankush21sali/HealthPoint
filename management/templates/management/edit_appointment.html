@@ -1,0 +1,77 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Edit Appointment{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/booknow.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="booknow">
+
+    <div class="container">
+
+        <div class="form_container">
+
+            {% if messages %}
+            <div class="messages">
+
+                {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <h1>Edit Appointment</h1>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Doctor</label>
+                    {{ form.doctor }}
+                </div>
+
+                <div class="form-group">
+                    <label>Patient</label>
+                    {{ form.patient }}
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    {{ form.date }}
+                </div>
+
+                <div class="form-group">
+                    <label>Time</label>
+                    {{ form.time }}
+                </div>
+
+                <div class="form-group">
+                    <label>Symptoms</label>
+                    {{ form.symptoms }}
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+                    {{ form.status }}
+                </div>
+
+                <button type="submit">Update Appointment</button>
+            </form>
+
+            <a href="{% url "manage_appointments" %}"><button type="submit">Go Back</button></a>
+
+        </div>
+
+
+    </div>
+</section>
+
+{% endblock %}

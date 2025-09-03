@@ -1,0 +1,101 @@
+.patient_dashboard {
+    padding: 2rem 4rem;
+    margin: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container1, .container2 {
+    border: 2px solid #0e254e;
+    width: 100%;
+    min-width: 300px;
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 1px rgb(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container1:hover, .container2:hover{
+    border-color: #365ed9;
+}
+
+.container1 h1 {
+    font-size: 1.8rem;
+    padding: 1rem;
+    color: #365ed9;
+}
+
+.container1 h3 {
+    font-size: 2.5rem;
+    color: #0e254e;
+    font-weight: 600;
+}
+
+.container1 a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin: 1.5rem auto;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: #365ed9;
+    border-radius: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.container1 a:hover {
+    background: #274bb7;
+    transform: translateY(-2px);
+}
+
+
+.container2 h2 {
+    font-size: 2.5rem;
+    color: #0e254e;
+    font-weight: 700;
+}
+
+.appointments {
+    padding: 1rem;
+    margin: 2rem;
+    border: 2px solid #0e254e;
+    border-radius: 1rem;
+    border-color: #365ed9;
+}
+
+
+.appointments p {
+    display: inline-block;
+    font-size: 1.2rem;
+    display: flex;
+    font-weight: 400;
+}
+
+.appointments a {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    margin: 1.5rem ;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: #365ed9;
+    border-radius: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
+@media (max-width: 600px) {
+    .patient_dashboard {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .container1 h3, .container2 h2 {
+        font-size: 2rem;
+    }
+}

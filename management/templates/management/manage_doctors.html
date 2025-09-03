@@ -1,0 +1,90 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Manage Doctors{% endblock%}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/manage_doctors.css" %}">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="doctors_container">
+
+    <div class="manage_doctors">
+
+        <h1>Doctor List</h1>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Department</th>
+                <th>Availability</th>
+                <th>Date Joined</th>
+                <th>Actions</th>
+            </tr>
+
+            {% if doctors %}
+            {% for doctor in doctors %}
+
+            <tr>
+                <td>
+                    {{doctor.doctor_id}}
+                </td>
+                <td>
+                    {{doctor.user.first_name}}
+                </td>
+                <td>
+                    {{doctor.user.last_name}}
+                </td>
+                <td>
+                    {{doctor.user.email}}
+                </td>
+                <td>
+                    {{doctor.contact}}
+                </td>
+                <td>
+                    {{doctor.department}}
+                </td>
+                
+                <td>
+                    {% if doctor.is_active %}
+                    Yes
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+
+                <td>
+                    {{doctor.date_joined}}
+                </td>
+                <td>
+
+                    <a href="{% url 'edit_doctor' doctor.doctor_id %}"><button class="edit_btn" style="margin-bottom: 0.5rem;">Edit</button></a> 
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <button class="delete_btn" name="delete_btn" value="{{doctor.doctor_id}}" type="submit">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+
+        </table>
+
+        <a class="doctor_btn" href="{% url "add_doctor" %}">Add New Doctor</a>
+
+    </div>
+
+</section>
+{% endblock %}
