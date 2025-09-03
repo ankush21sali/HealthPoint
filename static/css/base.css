@@ -4,6 +4,7 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
 .navbar {
     background-color: #0e254e;
     padding: 1rem 0;
@@ -37,6 +38,30 @@ body {
     color: white;
     margin: 0.5rem;
 }
+
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-icon .fa-xmark {
+    display: none;
+}
+
+#menu-toggle:checked + .menu-icon .fa-bars {
+    display: none;
+}
+#menu-toggle:checked + .menu-icon .fa-xmark {
+    display: inline-block;
+}
+
 
 .nav_items {
     display: flex;
@@ -91,14 +116,32 @@ body {
         text-align: center;
     }
 
-    .nav_items {
+    .brand_name {
+        margin-left: 3rem;
+    }
+
+    .nav_items,
+    .auth_link {
+        display: none;
         flex-direction: column;
-        margin-top: 1rem;
+        text-align: center;
     }
 
     .nav_items a {
         margin: 0.5rem 0;
         display: block;
+    }
+
+    #menu-toggle:checked ~ .nav_items,
+    #menu-toggle:checked ~ .auth_link {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
     }
 
     .auth_link {
