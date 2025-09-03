@@ -36,19 +36,19 @@
 
                 <div class="nav_items">
 
-                    <a href="{% url " doctor_dashboard" %}">Dashboard</a>
-                    <a href="{% url " our_patients" %}">Patients</a>
-                    <a href="{% url " billing_form" %}">Billings</a>
-                    <a href="{% url " discharge_list" %}">Discharge List</a>
-                    <a href="{% url " your_patients" %}">Your Patients</a>
+                    <a href="{% url 'doctor_dashboard' %}">Dashboard</a>
+                    <a href="{% url 'our_patients' %}">Patients</a>
+                    <a href="{% url 'discharge_list' %}">Billings</a>
+                    <a href="{% url 'discharge_list' %}">Discharge List</a>
+                    <a href="{% url 'your_patients' %}">Your Patients</a>
 
                 </div>
 
                 <div class="auth_link">
                     {% if user.is_authenticated %}
-                    <a href="{% url " user_logout" %}">Logout</a>
+                    <a href="{% url 'user_logout' %}">Logout</a>
                     {% else %}
-                    <a href="{% url " loginpage" %}">Login</a>
+                    <a href="{% url 'loginpage' %}">Login</a>
                     {% endif %}
                 </div>
             </div>
