@@ -70,11 +70,11 @@
             <div class="footer_links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Doctors</a></li>
-                    <li><a href="#">Departments</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="{% url "patient_dashboard" %}">Dashboard</a></li>
+                    <li><a href="{% url "our_departments" %}">Departments</a></li>
+                    <li><a href="{% url "our_doctors" %}">Doctors</a></li>
+                    <li><a href="{% url "appointments" %}">Appointment</a></li>
+                    <li><a href="{% url "billings" %}">Billings</a></li>
                 </ul>
             </div>
 
