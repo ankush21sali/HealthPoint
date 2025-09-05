@@ -7,6 +7,17 @@ from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 def home(request):
+    if request.user.is_authenticated:
+
+        if request.user.is_superuser:
+            return redirect("admin_dashboard")
+        
+        elif hasattr(request.user, "doctor"):
+            return redirect("doctor_dashboard")
+        
+        elif hasattr(request.user, "patient"):
+            return redirect("patient_dashboard")
+
     return render(request, "accounts/home.html")
 
 
@@ -108,7 +119,9 @@ def patient_login(request):
         if user is not None:
 
             if hasattr(user, "patient"):
+                request.session.flush()
                 login(request, user)
+                request.session.set_expiry(0)
                 return redirect("patient_dashboard")
             else:
                 messages.error(request, "You are not authorized as a Patient.")
@@ -170,7 +183,9 @@ def doctor_login(request):
         if user is not None:
 
             if hasattr(user, "doctor"):
+                request.session.flush()
                 login(request, user)
+                request.session.set_expiry(0)
                 return redirect("doctor_dashboard")
             else:
                 messages.error(request, "You are not authorized as a Doctor.")
@@ -199,7 +214,9 @@ def admin_login(request):
         if user is not None:
 
             if user.is_superuser:
+                request.session.flush()
                 login(request, user)
+                request.session.set_expiry(0)
                 return redirect('admin_dashboard')
             else:
                 messages.error(request, "You are not authorized to access the admin dashboard.")
