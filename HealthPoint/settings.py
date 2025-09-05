@@ -85,6 +85,11 @@ DATABASES = {
 }
 
 
+# Expire session when browser closes
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
