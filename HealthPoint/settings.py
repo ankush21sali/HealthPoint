@@ -89,10 +89,6 @@ DATABASES = {
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
-# Do not keep cookies persistent
-SESSION_COOKIE_AGE = None
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
