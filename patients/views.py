@@ -9,26 +9,26 @@ from doctors.models import Billing
 
 # Create your views here.
 
-@login_required
+@login_required(login_url='/patient_login/')
 def patient_dashboard(request):
     patient = Patient.objects.get(user=request.user)
     appointments = Appointment.objects.filter(patient=patient).order_by('-date', '-time')
     return render(request, 'patients/patient_dashboard.html', {"appointments": appointments})
 
 
-@login_required
+@login_required(login_url='/patient_login/')
 def our_departments(request):
     departments = Department.objects.all()
     return render(request, 'patients/departments.html', {'departments': departments})
 
 
-@login_required
+@login_required(login_url='/patient_login/')
 def our_doctors(request):
     doctors = Doctor.objects.all()
     return render(request, 'patients/doctors.html', {'doctors': doctors})
 
 
-@login_required
+@login_required(login_url='/patient_login/')
 def booknow(request):
     if request.method == "POST":
         form = AppointmentForm(request.POST)
@@ -48,7 +48,7 @@ def booknow(request):
     return render(request, 'patients/booknow.html', {'form': form})
 
 
-@login_required
+@login_required(login_url='/patient_login/')
 def appointments(request):
     patient = get_object_or_404(Patient, user=request.user)
     appointments = Appointment.objects.filter(patient=patient).order_by('-date', '-time')
@@ -62,7 +62,7 @@ def appointments(request):
     return render(request, 'patients/appointments.html', {"appointments": appointments})
 
 
-@login_required
+@login_required(login_url='/patient_login/')
 def edit_appointments(request, id):
     appointment = get_object_or_404(Appointment, pk=id, patient=request.user.patient)
 
@@ -79,7 +79,7 @@ def edit_appointments(request, id):
 
 
 
-@login_required
+@login_required(login_url='/patient_login/')
 def billings(request):
     patient = Patient.objects.get(user=request.user)
     bills = Billing.objects.filter(patient=patient) 

@@ -10,7 +10,7 @@ from patients.forms import AdminAppointmentForm
 from doctors.forms import AdminBillingForm
 
 # Create your views here.
-@login_required
+@login_required(login_url='/admin_login/')
 def admin_dashboard(request):
     total_patient = Patient.objects.count()
     total_doctor = Doctor.objects.count()
@@ -30,7 +30,7 @@ def admin_dashboard(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def manage_department(request):
     departments = Department.objects.all()
     
@@ -48,7 +48,7 @@ def manage_department(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def department_form(request):
     if request.method == "POST":
         department_name = request.POST.get('department_name')
@@ -64,7 +64,7 @@ def department_form(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def edit_department(request, id):
     department = get_object_or_404(Department, id=id)
 
@@ -88,7 +88,7 @@ def edit_department(request, id):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def manage_patients(request):
     patients = Patient.objects.all()
 
@@ -107,7 +107,7 @@ def manage_patients(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def add_patient(request):
     if request.method == "POST":
         first_name = request.POST.get('first_name')
@@ -150,7 +150,7 @@ def add_patient(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def edit_patient(request, id):
     patient = get_object_or_404( Patient, patient_id=id)
 
@@ -193,7 +193,7 @@ def edit_patient(request, id):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def manage_doctors(request):
     doctors = Doctor.objects.all()
 
@@ -210,7 +210,7 @@ def manage_doctors(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def add_doctor(request):
     if request.method == "POST":
         first_name = request.POST.get('first_name')
@@ -258,7 +258,7 @@ def add_doctor(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def edit_doctor(request, id):
     doctor = get_object_or_404(Doctor, doctor_id=id)
 
@@ -310,7 +310,7 @@ def edit_doctor(request, id):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def manage_appointments(request):
     appointments = Appointment.objects.all()
 
@@ -327,7 +327,7 @@ def manage_appointments(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def add_appointment(request):
     if request.method == "POST":
         form = AdminAppointmentForm(request.POST)
@@ -347,7 +347,7 @@ def add_appointment(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def edit_appointment(request, id):
     appointment = get_object_or_404(Appointment, id=id)
 
@@ -369,7 +369,7 @@ def edit_appointment(request, id):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def manage_billings(request):
     billings = Billing.objects.all()
 
@@ -385,7 +385,7 @@ def manage_billings(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def add_billings(request):
     if request.method == "POST":
         form = AdminBillingForm(request.POST)
@@ -405,7 +405,7 @@ def add_billings(request):
 
 
 
-@login_required
+@login_required(login_url='/admin_login/')
 def edit_billing(request, id):
     billing = get_object_or_404(Billing, pk=id)
 

@@ -7,7 +7,7 @@ from . forms import BillingForm
 
 # Create your views here.
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def doctor_dashboard(request):
     print(">>> Logged in user:", request.user.username)
 
@@ -15,21 +15,21 @@ def doctor_dashboard(request):
 
 
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def our_patients(request):
     patients = Patient.objects.all()
     return render(request, 'doctors/our_patients.html', {'patients': patients})
 
 
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def discharge_list(request):
     discharge_lists = Discharge.objects.all()  
     return render(request, 'doctors/discharge_list.html', {'discharge_lists': discharge_lists})
 
 
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def discharge_form(request, id):
     doctor = get_object_or_404(Doctor, user=request.user)
     patient = get_object_or_404(Patient, patient_id=id)
@@ -53,14 +53,14 @@ def discharge_form(request, id):
 
 
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def view_details(request, id):
     patient_detail = get_object_or_404(Patient, patient_id=id)
     return render(request, 'doctors/view_details.html', {"patient_detail": patient_detail})
 
 
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def billing_form(request):
     if request.method == "POST":
         form = BillingForm(request.POST)
@@ -77,7 +77,7 @@ def billing_form(request):
 
 
 
-@login_required
+@login_required(login_url='/doctor_login/')
 def your_patients(request):
     doctor = get_object_or_404(Doctor, user=request.user)
     billings = Billing.objects.filter(doctor=doctor)
