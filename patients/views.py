@@ -50,8 +50,12 @@ def booknow(request):
 
 @login_required(login_url='/patient_login/')
 def appointments(request):
-    patient = get_object_or_404(Patient, user=request.user)
-    appointments = Appointment.objects.filter(patient=patient).order_by('-date', '-time')
+    try:
+        patient = Patient.objects.get(user=request.user)
+        appointments = Appointment.objects.filter(patient=patient).order_by('-date', '-time')
+    except Patient.DoesNotExist or Appointment.DoesNotExist:
+        messages.error(request, 'Appointment does not exist!')
+        return redirect('appointments')
 
     if request.method == "POST":
         delete_id = request.POST.get('delete')
@@ -64,7 +68,11 @@ def appointments(request):
 
 @login_required(login_url='/patient_login/')
 def edit_appointments(request, id):
-    appointment = get_object_or_404(Appointment, pk=id, patient=request.user.patient)
+    try:
+        appointment = Appointment.objects.get(pk=id, patient=request.user.patient)
+    except Appointment.DoesNotExist:
+        messages.error(request, 'Appointment does not exist!')
+        return redirect('appointments')
 
     if request.method == "POST":
         form = AppointmentForm(request.POST, instance=appointment)

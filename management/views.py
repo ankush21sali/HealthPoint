@@ -66,7 +66,11 @@ def department_form(request):
 
 @login_required(login_url='/admin_login/')
 def edit_department(request, id):
-    department = get_object_or_404(Department, id=id)
+    try:
+        department = Department.objects.get(id=id)
+    except Department.DoesNotExist:
+        messages.error(request, "Department does not exist!")
+        return redirect('manage_department')
 
     if request.method == "POST":
         department_name = request.POST.get('department_name')
@@ -152,7 +156,11 @@ def add_patient(request):
 
 @login_required(login_url='/admin_login/')
 def edit_patient(request, id):
-    patient = get_object_or_404( Patient, patient_id=id)
+    try:
+        patient = Patient.objects.get(patient_id=id)
+    except Patient.DoesNotExist:
+        messages.error(request, "Patient does not exist!")
+        return redirect('manage_patients')
 
     if request.method == "POST":
         first_name = request.POST.get('first_name')
@@ -260,7 +268,11 @@ def add_doctor(request):
 
 @login_required(login_url='/admin_login/')
 def edit_doctor(request, id):
-    doctor = get_object_or_404(Doctor, doctor_id=id)
+    try:
+        doctor = Doctor.objects.get(doctor_id=id)
+    except Doctor.DoesNotExist:
+        messages.error(request, "Doctor does not exist!")
+        return redirect('manage_doctors')
 
     if request.method == "POST":
         first_name = request.POST.get('first_name')
@@ -349,7 +361,11 @@ def add_appointment(request):
 
 @login_required(login_url='/admin_login/')
 def edit_appointment(request, id):
-    appointment = get_object_or_404(Appointment, id=id)
+    try:
+        appointment = Appointment.objects.get(id=id)
+    except Appointment.DoesNotExist:
+        messages.error(request, "Appointment does not exist!")
+        return redirect('manage_appointments')
 
     if request.method == "POST":
         form = AdminAppointmentForm(request.POST, instance=appointment)
@@ -407,7 +423,11 @@ def add_billings(request):
 
 @login_required(login_url='/admin_login/')
 def edit_billing(request, id):
-    billing = get_object_or_404(Billing, pk=id)
+    try:
+        billing = Billing.objects.get(pk=id)
+    except Billing.DoesNotExist:
+        messages.error(request, "Billing does not exist!")
+        return redirect('manage_billings')
 
     if request.method == "POST":
         form = AdminBillingForm(request.POST, instance=billing)
